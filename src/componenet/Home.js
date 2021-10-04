@@ -11,14 +11,16 @@ export class Home extends Component {
     };
   }
   componentDidMount = async () => {
-    const erqApi = await axios.get(`http://localhost:8004/getapidata`);
+    const erqApi = await axios.get(
+      `https://examraneem.herokuapp.com/getapidata`
+    );
     this.setState({
       dataApi: erqApi.data,
     });
     console.log(this.state.dataApi);
   };
   addtoFav = async (obj) => {
-    await axios.post(`http://localhost:8004/postMethod`, obj);
+    await axios.post(`https://examraneem.herokuapp.com/postMethod`, obj);
     console.log(obj);
   };
   render() {

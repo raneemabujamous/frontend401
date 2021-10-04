@@ -16,14 +16,16 @@ export class Faveroite extends Component {
     };
   }
   componentDidMount = async () => {
-    const reqFav = await axios.get(`http://localhost:8004/getpost`);
+    const reqFav = await axios.get(`https://examraneem.herokuapp.com/getpost`);
     this.setState({
       favData: reqFav.data,
       showFavdata: true,
     });
   };
   deletefromfav = async (slug) => {
-    const deleteres = await axios.delete(`http://localhost:8004/delete${slug}`);
+    const deleteres = await axios.delete(
+      `https://examraneem.herokuapp.com/delete${slug}`
+    );
     this.setState({
       favData: deleteres.data,
     });
@@ -44,7 +46,7 @@ export class Faveroite extends Component {
   updaeMethid = async () => {
     const updted = { price: this.state.price, image: this.state.image };
     const updateReq = await axios.put(
-      `http://localhost:8004/updatadata${this.state.slug}`,
+      `https://examraneem.herokuapp.com/updatadata${this.state.slug}`,
       updted
     );
     this.setState({
